@@ -33,4 +33,6 @@ function removeReminder() {
 };
 
 // 一加载插件，就默认设置
-setReminder(1, "休息一下眼睛吧!");
+chrome.runtime.onInstalled.addListener(function(reason){
+  setReminder(1, "休息一下眼睛吧!");
+});
