@@ -22,6 +22,8 @@ function setReminder(interval, tip) {
     );
     console.log("*******Got an alarm!*********", alarm);
   });
+
+  chrome.storage.sync.set({"interval": interval, "tip": tip});
   alert("set reminder success");
 };
 

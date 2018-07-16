@@ -3,7 +3,7 @@
 	"version": "1.0.1",
 	"description": "remind",
 	"manifest_version": 2,
-	"permissions": ["notifications", "alarms"],
+	"permissions": ["notifications", "alarms", "storage"],
 	"background": {
 		"scripts": ["background.js"],
 		"persistent": true
