@@ -17,7 +17,8 @@ function setReminder(interval, tip) {
                                 {type:"basic", 
                                 iconUrl:"images/get_started16.png", 
                                 title:"ireminder message",
-                                message:tip}
+                                message:tip,
+                                requireInteraction:true}
     );
     console.log("*******Got an alarm!*********", alarm);
   });
