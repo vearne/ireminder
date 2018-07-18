@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 'use strict';
-
+let alarmSet = new Set();
 
 function setReminder(interval, tip) {
   // interval 单位分钟
@@ -12,15 +12,28 @@ function setReminder(interval, tip) {
   chrome.alarms.clearAll();
   chrome.alarms.create("ireminder", {when: st, periodInMinutes:interval});
   chrome.alarms.onAlarm.addListener(alarm => {
-    var t = new Date().getTime();
-    chrome.notifications.create(t.toString(), 
-                                {type:"basic", 
-                                iconUrl:"images/get_started16.png", 
-                                title:"ireminder message",
-                                message:tip,
-                                requireInteraction:true}
-    );
-    console.log("*******Got an alarm!*********", alarm, t.toString());
+    if(alarm.name != "ireminder"){
+      return
+    }
+    if(alarmSet.has(alarm.scheduledTime)){
+      return
+    }
+
+    chrome.storage.sync.get(['tip'], result => {
+      if(result.tip){
+        chrome.notifications.create( 
+          {type:"basic", 
+          iconUrl:"images/get_started16.png", 
+          title:"ireminder message",
+          message:result.tip,
+          requireInteraction:true}
+        );
+      }
+    });
+
+    alarmSet.clear();
+    alarmSet.add(alarm.scheduledTime);
+    console.log("*******Got an alarm!*********", alarm);
   });
 
   chrome.storage.sync.set({"interval": interval, "tip": tip});
