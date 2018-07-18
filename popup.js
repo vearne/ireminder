@@ -4,7 +4,7 @@ let setRemindButton = document.getElementById('setRemindButton');
 let removeRemindButton = document.getElementById('removeRemindButton');
 
 
-chrome.storage.sync.get(['interval', 'tip'], function(result) {
+chrome.storage.sync.get(['interval', 'tip'], result => {
   let intervalInput = document.getElementById('interval');
   let tipInput = document.getElementById('tip');
   if(result.interval){

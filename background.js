@@ -11,7 +11,7 @@ function setReminder(interval, tip) {
   var st = new Date().getTime() + 60 * 1000 * interval;
   chrome.alarms.clearAll();
   chrome.alarms.create("ireminder", {when: st, periodInMinutes:interval});
-  chrome.alarms.onAlarm.addListener(function(alarm) {
+  chrome.alarms.onAlarm.addListener(alarm => {
     var t = new Date().getTime();
     chrome.notifications.create(t.toString(), 
                                 {type:"basic", 
@@ -20,7 +20,7 @@ function setReminder(interval, tip) {
                                 message:tip,
                                 requireInteraction:true}
     );
-    console.log("*******Got an alarm!*********", alarm);
+    console.log("*******Got an alarm!*********", alarm, t.toString());
   });
 
   chrome.storage.sync.set({"interval": interval, "tip": tip});
