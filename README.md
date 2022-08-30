@@ -1,5 +1,5 @@
 ### 1.引言
-周末在家，花了点时间，写了一个chrome插件，提醒在繁忙的工作中，注意休息保护眼睛
+一个chrome插件，提醒在繁忙的工作中，注意休息保护眼睛
 [插件下载地址](https://pan.baidu.com/s/10kEtuJ-y3d27wCBLUivFOA)
 [github地址](https://github.com/vearne/ireminder)
 
@@ -27,10 +27,4 @@ chrome://extensions/
 
 有兴趣的朋友可以试一下。
 
------
-#### 如果我的文章对你有帮助，你可以给我打赏以促使我拿出更多的时间和精力来分享我的经验和思考总结。
 
-![微信支付码](http://vearne.cc/wp-content/uploads/2018/01/WechatIMG29.jpg)
-
-来自
-萌叔 | http://vearne.cc
